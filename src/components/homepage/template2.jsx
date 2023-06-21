@@ -42,16 +42,16 @@ function Template1(prop) {
     
       
       <Grid container spacing={2} backgroundColor="#673ab7" color="white" borderRadius={2} >
-      <Grid  sm={6} >
+      <Grid  xs={6} >
 <Typography  ml={1} variant='h3'  >{`${prop.input.First_Name}  ${prop.input.Last_Name}`}</Typography>
           
         </Grid>
         
           
-        <Grid sm={6} ><CallIcon /><Typography variant='h6' >{prop.input.Mobile}</Typography></Grid>
+        <Grid xs={6} ><CallIcon /><Typography variant='h6' >{prop.input.Mobile}</Typography></Grid>
        
-        <Grid  sm={6}>  <HomeIcon /><Typography variant='h6' >{prop.input.Address}</Typography></Grid>
-        <Grid  sm={6} > <EmailIcon  /><Typography  variant='h6'>{prop.input.Email}</Typography></Grid>
+        <Grid  xs={6}>  <HomeIcon /><Typography variant='h6' >{prop.input.Address}</Typography></Grid>
+        <Grid  xs={6} > <EmailIcon  /><Typography  variant='h6'>{prop.input.Email}</Typography></Grid>
         
          
         
@@ -65,7 +65,7 @@ function Template1(prop) {
       <Box sx={{ flexGrow: 1,boxShadow: 1  }}>
         <Grid container spacing={2} >
 
-          <Grid sm={12} >
+          <Grid xs={12} >
             
 
             <Typography variant='h5' color="#1F8C9E"  > Objective <FlagCircleIcon /></Typography>
@@ -74,7 +74,7 @@ function Template1(prop) {
            {/* objective info Ends */}
                     {/* work info starts */}
 
-                    <Grid  sm={12}  >
+                    <Grid  xs={12}  >
             <Typography variant='h5' color="#1F8C9E"  >Work Experience <WorkIcon /></Typography>
             <Item >
             <Typography variant='h6' >Work Experience 1</Typography>
@@ -106,7 +106,7 @@ function Template1(prop) {
           </Grid>
           {/* work info Ends */}
  {/* education info starts */}
-          <Grid sm={12} >
+          <Grid xs={12} >
           <Typography variant='h5' color="#1F8C9E"  > Education Detail <SchoolIcon/></Typography>
           <Typography variant='h6' >Education 1</Typography>
             
@@ -145,7 +145,7 @@ function Template1(prop) {
           {/* education info Ends */} 
             {/* Key info info starts */}
 
-          <Grid sm={12}>
+          <Grid xs={12}>
             <Typography variant='h5' color="#1F8C9E"  >Key Skills<KeyIcon /></Typography>
             <Item>
             <Typography ml={4} variant='h6' align='left' >{prop.input.Skill_1}</Typography>

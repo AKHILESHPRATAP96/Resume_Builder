@@ -24,7 +24,7 @@ return(<>
  
   
         <Grid item xs={6} sx={{mt:2}}>
-          <TextField id="filled-basic" label={`skill ${index+5}`} {...register(`KeySkills[${index}].Skill`)} defaultValue={item.skills} variant="outlined" fullWidth/>
+          <TextField id="filled-basic" label={`skill ${index+3}`} {...register(`KeySkills[${index}].Skill`)} defaultValue={item.skills} variant="outlined" fullWidth/>
         </Grid>
         <Grid item xs={6}>
         <Box sx={{m:2}}><Button  variant='contained' color='error' onClick={()=>{remove(index)}}>Remove</Button></Box>
