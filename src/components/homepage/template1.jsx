@@ -15,6 +15,7 @@ import KeyIcon from '@mui/icons-material/Key';
 
 
 
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -36,9 +37,11 @@ function Template1(prop) {
 
   return (
     // header starts
-    <Box sx={{ flexGrow: 1,ml:10,mr:10,mt:2} } id="Temp1"  >
+    <div style={{ width: '210mm',height:"297mm" }} >
+    <Paper id="Temp1" elevation={3}  >
+    
       
-      <Grid container spacing={2} backgroundColor="#1F8C9E" color="white" borderRadius={2}  >
+      <Grid container spacing={2} backgroundColor="#1F8C9E" color="white" borderRadius={2} >
       <Grid  sm={6} >
 <Typography  ml={1} variant='h3'  >{`${prop.input.First_Name}  ${prop.input.Last_Name}`}</Typography>
           
@@ -59,10 +62,10 @@ function Template1(prop) {
 
        {/* objective starts */}
      
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
+      <Box sx={{ flexGrow: 1,boxShadow: 1  }}>
+        <Grid container spacing={2} >
 
-          <Grid xs={12}>
+          <Grid sm={12} >
             
 
             <Typography variant='h5' color="#1F8C9E"  > Objective <FlagCircleIcon /></Typography>
@@ -71,7 +74,7 @@ function Template1(prop) {
            {/* objective info Ends */}
                     {/* work info starts */}
 
-                    <Grid  xs={12}  >
+                    <Grid  sm={12}  >
             <Typography variant='h5' color="#1F8C9E"  >Work Experience <WorkIcon /></Typography>
             <Item >
             <Typography variant='h6' >Work Experience 1</Typography>
@@ -103,7 +106,7 @@ function Template1(prop) {
           </Grid>
           {/* work info Ends */}
  {/* education info starts */}
-          <Grid xs={6} >
+          <Grid sm={12} >
           <Typography variant='h5' color="#1F8C9E"  > Education Detail <SchoolIcon/></Typography>
           <Typography variant='h6' >Education 1</Typography>
             
@@ -140,18 +143,18 @@ function Template1(prop) {
             
                    </Grid>
           {/* education info Ends */} 
+            {/* Key info info starts */}
 
-          <Grid xs={6}>
+          <Grid sm={12}>
             <Typography variant='h5' color="#1F8C9E"  >Key Skills<KeyIcon /></Typography>
             <Item>
-            <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">Skill 1:</Typography>{prop.input.Skill_1}</Typography>
-            <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">Skill 2:</Typography>{prop.input.Skill_2}</Typography>
-            <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">Skill 3:</Typography>{prop.input.Skill_3}</Typography>
-            <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">Skill 4:</Typography>{prop.input.Skill_3}</Typography>
+            <Typography ml={4} variant='h6' align='left' >{prop.input.Skill_1}</Typography>
+            <Typography ml={4} variant='h6' align='left' >{prop.input.Skill_2}</Typography>
+
             {
               skill&&skill.map((sk,index)=>(
                 
-              <div key={index}>  <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Skill {`${index+5}`}</Typography> {sk.Skill}</Typography> </div>
+              <div key={index}>  <Typography ml={4} variant='h6' align='left'>{sk.Skill}</Typography> </div>
               ))}
             </Item>
           
@@ -164,8 +167,8 @@ function Template1(prop) {
 
 
 
-    </Box>
-
+   
+    </Paper></div>
   )
 }
 

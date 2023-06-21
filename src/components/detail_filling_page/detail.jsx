@@ -25,10 +25,12 @@ import {  useNavigate } from 'react-router-dom'
 function Detail() {
     const method = useForm()
     const navigate=useNavigate()
+    const { formState: { errors }} = useForm();
     let input = useSelector(state => state.updateinfos)
     // console.log('before update', input)
     const dispatch = useDispatch()
     let onSubmit = (data) => {
+        
         dispatch(updateinfo(data))
         // alert("submitted")
         console.log("data", data)
@@ -55,9 +57,7 @@ function Detail() {
 
         setValue(newValue);
     };
-    // let formstep = useSelector(state => state.formstep)
-    // console.log("formstep", formstep)
-    // console.log("after dispatch", input)
+  
 
 
 
@@ -86,10 +86,10 @@ function Detail() {
 
 
                         >
-                            <Tab style={{ alignItems: 'flex-start' }} label="Personal Info" />
-                            <Tab style={{ alignItems: 'flex-start' }} label="Work Experience" />
-                            <Tab style={{ alignItems: 'flex-start' }} label="Education" />
-                            <Tab style={{ alignItems: 'flex-start' }} label="Key Skills" />  </Tabs>
+                            <Tab style={{ alignItems: 'flex-start' }} label="Personal Info" disabled={(value==0)?false:true}/>
+                            <Tab style={{ alignItems: 'flex-start' }} label="Work Experience" disabled={(value==1)?false:true} />
+                            <Tab style={{ alignItems: 'flex-start' }} label="Education" disabled={(value==2)?false:true}/>
+                            <Tab style={{ alignItems: 'flex-start' }} label="Key Skills" disabled={(value==3)?false:true} />  </Tabs>
 
                     </Item>
 
@@ -100,28 +100,23 @@ function Detail() {
                 </Grid>
             </Grid>
             <Grid item xs={10} >
+                {console.log(value,"this is value")}
                 <FormProvider {...method}>
-                    <form onSubmit={method.handleSubmit(onSubmit)}>
-                        {value == 0 && (<Personal_Info />)}
+                    <form onSubmit={method.handleSubmit(onSubmit)} >
+                        {value == 0 &&(<Personal_Info />)}
                         {value == 1 && (<Work_info />)}
                         {value == 2 && (<Education />)}
                         {value == 3 && (<KeySkills />)}
-                        {value == 4 && (<Preview />)}
-
-
-
+                        
                         <Grid container spacing={2} >
-                        <Stack direction="row" spacing={6} mt={2}>
+                        <Stack direction="row" spacing={6} mt={3}>
                        <Button  variant="outlined" onClick={() => { (value >= 1) && setValue(value - 1) }}>Back</Button>
-                                <Button  variant="contained" onClick={() => { (value <= 2) && setValue(value + 1) }}>Next</Button>
-                              <Grid xs={4}>{value == 3 && (<Button   variant="contained" type="submit" >Preview</Button>)}</Grid>
+                                <Button  variant="contained"   onClick={method.handleSubmit(() => {
+            if (value <= 2) setValue(value + 1);
+          })}>Next</Button>
+                              <Grid xs={4}>{value==3 && (<Button   variant="contained" type="submit" >Preview</Button>)}</Grid>
                                 </Stack>
                         </Grid>
-
-
-
-
-
                     </form>
                 </FormProvider>
 

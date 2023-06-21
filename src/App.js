@@ -22,7 +22,7 @@ function App() {
       <Route path="prev" element={<Previewpage/>}></Route>
     
       <Route path='/AboutUs' exact element={<Aboutus/>}></Route>
-      <Route path='My Resumes'exact element={<My_Resume />}></Route>
+      
     </Routes>
 
     </BrowserRouter>

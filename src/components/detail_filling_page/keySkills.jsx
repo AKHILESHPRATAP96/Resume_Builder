@@ -50,7 +50,7 @@ return(<>
 
 
  function KeySkills() {
-    const {register,handleSubmit,}=useFormContext()
+  const { register,formState: { errors }} = useFormContext()
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -60,18 +60,15 @@ return(<>
       <Grid container spacing={2}>
         
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="Skill 1" {...register(`Skill_1`)} variant="outlined" fullWidth/>
+          <TextField id="filled-basic" label="Skill 1" {...register(`Skill_1`,{ required: true })} variant="outlined" fullWidth/>
+          {errors.Skill_1 && <span>*This field is required*</span>}
         </Grid>
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="Skill 2" {...register(`Skill_2`)} variant="outlined"fullWidth />
+          <TextField id="filled-basic" label="Skill 2" {...register(`Skill_2`,{ required: true })} variant="outlined"fullWidth />
+          {errors.Skill_2 && <span>*This field is required*</span>}
         </Grid>
 
-        <Grid item xs={6}>
-          <TextField id="filled-basic" label="Skill 3" {...register(`Skill_3`)} variant="outlined" fullWidth/>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField id="filled-basic" label="Skill 4" {...register(`Skill_4`)} variant="outlined" fullWidth />
-        </Grid>
+       
       </Grid>
       <Grid item xs={12}>   <AddSkills register={register} /></Grid>
 

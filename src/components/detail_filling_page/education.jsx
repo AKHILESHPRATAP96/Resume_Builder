@@ -68,7 +68,7 @@ return(<>
 
 
  function Education() {
-    const {register}=useFormContext()
+  const { register,formState: { errors }} = useFormContext()
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -80,7 +80,8 @@ return(<>
         </Typography>
         <Grid container spacing={2}>
 <Grid item xs={6}>
-          <TextField id="filled-basic" label="Type" {...register(`Type`)}  variant="outlined" fullWidth />
+          <TextField id="filled-basic" label="Type" {...register(`Type`,{ required: true })}  variant="outlined" fullWidth />
+          {errors.Type && <span>*This field is required*</span>}
         </Grid>
         <Grid item xs={6}>
          
@@ -88,17 +89,21 @@ return(<>
  
   
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="University" {...register(`University`)}  variant="outlined" fullWidth/>
+          <TextField id="filled-basic" label="University" {...register(`University`,{ required: true })}  variant="outlined" fullWidth/>
+          {errors.University && <span>*This field is required*</span>}
         </Grid>
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="Degree" {...register(`Degree`)}  variant="outlined"fullWidth />
+          <TextField id="filled-basic" label="Degree" {...register(`Degree`,{ required: true })}  variant="outlined"fullWidth />
+          {errors.Degree && <span>*This field is required*</span>}
         </Grid>
 
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="Start year" {...register(`Start_year`)}   variant="outlined" fullWidth/>
+          <TextField id="filled-basic" label="Start year" {...register(`Start_year`,{ required: true })}   variant="outlined" fullWidth/>
+          {errors.Start_year && <span>*This field is required*</span>}
         </Grid>
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="End year" {...register(`End_year`)}   variant="outlined" fullWidth />
+          <TextField id="filled-basic" label="End year" {...register(`End_year`,{ required: true })}   variant="outlined" fullWidth />
+          {errors.End_year && <span>*This field is required*</span>}
         </Grid>
        
      

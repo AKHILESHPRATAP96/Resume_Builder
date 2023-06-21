@@ -69,7 +69,7 @@ return(<>
 
 
  function Work_info(props) {
-    const {register,handleSubmit,}=useFormContext()
+  const { register,formState: { errors }} = useFormContext()
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -82,17 +82,21 @@ return(<>
       <Grid container spacing={2}>
         
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="Job Title" {...register(`Job_Title`)} variant="outlined" fullWidth/>
+          <TextField id="filled-basic" label="Job Title" {...register(`Job_Title`,{ required: true })} variant="outlined" fullWidth/>
+          {errors.Job_Title && <span>*This field is required*</span>}
         </Grid>
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="Organization" {...register(`Organization`)} variant="outlined"fullWidth />
+          <TextField id="filled-basic" label="Organization" {...register(`Organization`,{ required: true })} variant="outlined"fullWidth />
+          {errors.Organization && <span>*This field is required*</span>}
         </Grid>
 
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="Start Date" {...register(`Start_Date`)} variant="outlined" fullWidth/>
+          <TextField id="filled-basic" label="Start Date" {...register(`Start_Date`,{ required: true })} variant="outlined" fullWidth/>
+          {errors.Start_Date && <span>*This field is required*</span>}
         </Grid>
         <Grid item xs={6}>
-          <TextField id="filled-basic" label="End Date" {...register(`End_Date`)} variant="outlined" fullWidth />
+          <TextField id="filled-basic" label="End Date" {...register(`End_Date`,{ required: true })} variant="outlined" fullWidth />
+          {errors.End_Date && <span>*This field is required*</span>}
         </Grid>
       </Grid>
       <Grid item xs={12}>   <Addexperience register={register} /></Grid>

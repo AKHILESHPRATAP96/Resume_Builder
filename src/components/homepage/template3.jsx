@@ -9,8 +9,10 @@ import CallIcon from '@mui/icons-material/Call';
 import HomeIcon from '@mui/icons-material/Home';
 import FlagCircleIcon from '@mui/icons-material/FlagCircle';
 import SchoolIcon from '@mui/icons-material/School';
+
 import WorkIcon from '@mui/icons-material/Work';
 import KeyIcon from '@mui/icons-material/Key';
+
 
 
 
@@ -22,7 +24,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function Template3(prop) {
+function Template1(prop) {
   console.log("input is ",prop)
   let education=prop.input.Educations;
   let experience=prop.input.experiences;
@@ -35,9 +37,11 @@ function Template3(prop) {
 
   return (
     // header starts
-    <Box sx={{ flexGrow: 1,ml:10,mr:10,mt:2} } id="Temp3"  >
+    <div style={{ width: '210mm',height:"297mm" }} >
+    <Paper id="Temp3" elevation={3}  >
+    
       
-      <Grid container spacing={2} backgroundColor="#57975b" color="white" borderRadius={2}  >
+      <Grid container spacing={2} backgroundColor="#57975b" color="white" borderRadius={2} >
       <Grid  sm={6} >
 <Typography  ml={1} variant='h3'  >{`${prop.input.First_Name}  ${prop.input.Last_Name}`}</Typography>
           
@@ -58,10 +62,10 @@ function Template3(prop) {
 
        {/* objective starts */}
      
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
+      <Box sx={{ flexGrow: 1,boxShadow: 1  }}>
+        <Grid container spacing={2} >
 
-          <Grid xs={12}>
+          <Grid sm={12} >
             
 
             <Typography variant='h5' color="#1F8C9E"  > Objective <FlagCircleIcon /></Typography>
@@ -70,7 +74,7 @@ function Template3(prop) {
            {/* objective info Ends */}
                     {/* work info starts */}
 
-                    <Grid  xs={12}  >
+                    <Grid  sm={12}  >
             <Typography variant='h5' color="#1F8C9E"  >Work Experience <WorkIcon /></Typography>
             <Item >
             <Typography variant='h6' >Work Experience 1</Typography>
@@ -102,7 +106,7 @@ function Template3(prop) {
           </Grid>
           {/* work info Ends */}
  {/* education info starts */}
-          <Grid xs={6} >
+          <Grid sm={12} >
           <Typography variant='h5' color="#1F8C9E"  > Education Detail <SchoolIcon/></Typography>
           <Typography variant='h6' >Education 1</Typography>
             
@@ -139,18 +143,18 @@ function Template3(prop) {
             
                    </Grid>
           {/* education info Ends */} 
+            {/* Key info info starts */}
 
-          <Grid xs={6}>
+          <Grid sm={12}>
             <Typography variant='h5' color="#1F8C9E"  >Key Skills<KeyIcon /></Typography>
             <Item>
-            <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">Skill 1:</Typography>{prop.input.Skill_1}</Typography>
-            <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">Skill 2:</Typography>{prop.input.Skill_2}</Typography>
-            <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">Skill 3:</Typography>{prop.input.Skill_3}</Typography>
-            <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">Skill 4:</Typography>{prop.input.Skill_3}</Typography>
+            <Typography ml={4} variant='h6' align='left' >{prop.input.Skill_1}</Typography>
+            <Typography ml={4} variant='h6' align='left' >{prop.input.Skill_2}</Typography>
+
             {
               skill&&skill.map((sk,index)=>(
                 
-              <div key={index}>  <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Skill {`${index+5}`}</Typography> {sk.Skill}</Typography> </div>
+              <div key={index}>  <Typography ml={4} variant='h6' align='left'>{sk.Skill}</Typography> </div>
               ))}
             </Item>
           
@@ -163,10 +167,10 @@ function Template3(prop) {
 
 
 
-    </Box>
-
+   
+    </Paper></div>
   )
 }
 
 
-export default Template3;
+export default Template1;
