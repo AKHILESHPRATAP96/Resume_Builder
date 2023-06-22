@@ -11,7 +11,7 @@ import { useFieldArray, useFormContext } from 'react-hook-form';
 
 
 function AddSkills(props){
-//adding work experience by mapping
+//adding keyskills experience by mapping
   const {register,}=props;
 
 const {append,fields,remove}=useFieldArray({name:"KeySkills"})

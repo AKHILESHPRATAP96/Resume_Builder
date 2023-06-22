@@ -3,10 +3,6 @@ import { useForm, FormProvider, useFormContext } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import Stack from '@mui/material/Stack';
 import Personal_Info from "./personal_info"
-import Preview from '../preview_page/priview'
-
-
-
 import { updateinfo } from "../../state/action"
 import { Button } from "@mui/material"
 import Work_info from "./workexperience"
@@ -20,14 +16,14 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import {  useNavigate } from 'react-router-dom'
 
-
+// As soon as details are filled for particular categories/sections browser moves further to next fields if ! then same field on same page
 
 function Detail() {
     const method = useForm()
     const navigate=useNavigate()
     const { formState: { errors }} = useForm();
     let input = useSelector(state => state.updateinfos)
-    // console.log('before update', input)
+    //dispacting data to store
     const dispatch = useDispatch()
     let onSubmit = (data) => {
         

@@ -10,7 +10,7 @@ import { useFieldArray, useFormContext } from 'react-hook-form';
 
 
 function AddEducation(props){
-//adding work experience by mapping
+//adding education by mapping
   const {register,}=props;
 
 const {append,fields,remove}=useFieldArray({name:"Educations"})

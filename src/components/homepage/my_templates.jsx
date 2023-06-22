@@ -33,7 +33,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-
+//selected template will redirect page to detail filling page
 function Mytemplates(){
  
   const dispatch=useDispatch();
@@ -42,8 +42,6 @@ function Mytemplates(){
   return(<>
   
   <DrawerAppBar/>
-  
-
   
   
   <Box sx={{ flexGrow: 1,m:3 }}  >

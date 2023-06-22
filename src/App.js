@@ -4,9 +4,9 @@ import Detail from './components/detail_filling_page/detail';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import My_templates from './components/homepage/my_templates';
-import My_Resume from './components/My_Resume';
+
 import Aboutus from './components/about_us_page/aboutus';
-import { Preview } from '@mui/icons-material';
+
 import Previewpage from './components/preview_page/priview';
 
 
