@@ -104,12 +104,12 @@
 * About us
 
 *__Live Link__* <br/>
-<b> comming </b>
+<b> https://resume-builder04.netlify.app/</b>
 
 </hr>
 
 *__Demo Video__* </br>
-<b>comming</b>
+<b>https://youtu.be/ylRhCPRIIGw</b>
 
 
 
