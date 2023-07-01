@@ -105,11 +105,9 @@ function Detail() {
                         {value == 3 && (<KeySkills />)}
                         
                         <Grid container spacing={2} >
-                        <Stack direction="row" spacing={6} mt={3}>
+                        <Stack direction="row" spacing={6} mt={3} ml={2}>
                        <Button  variant="outlined" onClick={() => { (value >= 1) && setValue(value - 1) }}>Back</Button>
-                                <Button  variant="contained"   onClick={method.handleSubmit(() => {
-            if (value <= 2) setValue(value + 1);
-          })}>Next</Button>
+{(value<3)&&<Button  variant="contained"   onClick={method.handleSubmit(() => {(value <= 2)&&setValue(value + 1) })}>Next</Button>}
                               <Grid xs={4}>{value==3 && (<Button   variant="contained" type="submit" >Preview</Button>)}</Grid>
                                 </Stack>
                         </Grid>
