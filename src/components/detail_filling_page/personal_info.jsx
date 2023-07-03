@@ -60,7 +60,7 @@ import {  TextField, Typography } from '@mui/material';
         
      
         <Grid item xs={12}>
-          <TextField id="filled-basic" label="Objective" {...register("Objective",{ required: true, pattern: /^[A-Za-z]+$/
+          <TextField id="filled-basic" label="Objective" {...register("Objective",{ required: true,
          })} variant="outlined" multiline fullWidth/>
           {errors.Objective && <span>***Please enter only alphabetic characters  in Objective** </span>}
         </Grid>

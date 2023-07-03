@@ -104,12 +104,12 @@
 * About us
 
 *__Live Link__* <br/>
-<b> https://resume-builder04.netlify.app/</b>
+<b> https://resumebuilder02.netlify.app/</b>
 
 </hr>
 
 *__Demo Video__* </br>
-<b>https://youtu.be/ylRhCPRIIGw</b>
+<b>https://www.youtube.com/watch?v=vHYAhyo6f0U</b>
 
 
 
