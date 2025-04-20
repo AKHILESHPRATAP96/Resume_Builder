@@ -1,176 +1,99 @@
 import * as React from 'react';
+import { Box, Grid, Typography, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
-import { Typography } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
 import HomeIcon from '@mui/icons-material/Home';
 import FlagCircleIcon from '@mui/icons-material/FlagCircle';
 import SchoolIcon from '@mui/icons-material/School';
-
 import WorkIcon from '@mui/icons-material/Work';
 import KeyIcon from '@mui/icons-material/Key';
 
-
-
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(2),
+  marginBottom: theme.spacing(2),
+  backgroundColor: '#fff',
+  borderRadius: 8,
+  // boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
 }));
 
-function Template1(prop) {
-  console.log("input is ",prop)
-  let education=prop.input.Educations;
-  let experience=prop.input.experiences;
-  let skill=prop.input.KeySkills
-  ;
-  console.log("skill is ",skill)
- 
-  
- 
+function Template1({ input }) {
+  const { Educations = [], experiences = [], KeySkills = [] } = input;
 
   return (
-    // header starts
-    <div style={{ width: '210mm',height:"297mm" }} >
-    <Paper id="Temp1" elevation={3}  >
-    
-      
-      <Grid container spacing={2} backgroundColor="#1F8C9E" color="white" borderRadius={2} >
-      <Grid  xs={6} >
-<Typography  ml={1} variant='h3'  >{`${prop.input.First_Name}  ${prop.input.Last_Name}`}</Typography>
-          
-        </Grid>
-        
-          
-        <Grid xs={6} ><CallIcon /><Typography variant='h6' >{prop.input.Mobile}</Typography></Grid>
-       
-        <Grid  xs={6}>  <HomeIcon /><Typography variant='h6' >{prop.input.Address}</Typography></Grid>
-        <Grid  xs={6} > <EmailIcon  /><Typography  variant='h6'>{prop.input.Email}</Typography></Grid>
-        
-         
-        
-        </Grid>
-       
-      
-      {/* headers end    */}
+    <Box sx={{ width: '210mm', height: '297mm', p: 3, backgroundColor: '#f5f5f5' }}>
+      <Paper id="Temp1" elevation={3} sx={{ p: 3 }}>
 
-       {/* objective starts */}
-     
-      <Box sx={{ flexGrow: 1,boxShadow: 1  }}>
-        <Grid container spacing={2} >
-
-          <Grid xs={12} >
-            
-
-            <Typography variant='h5' color="#1F8C9E"  > Objective <FlagCircleIcon /></Typography>
-            <Item><Typography ml={4} variant='h6' align='left'>{prop.input.Objective}</Typography></Item>
+        <Grid container spacing={2} sx={{ backgroundColor: '#1F8C9E', color: 'white', p: 2, borderRadius: 2 }}>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4">{`${input.First_Name} ${input.Last_Name}`}</Typography>
           </Grid>
-           {/* objective info Ends */}
-                    {/* work info starts */}
-
-                    <Grid  xs={12}  >
-            <Typography variant='h5' color="#1F8C9E"  >Work Experience <WorkIcon /></Typography>
-            <Item >
-            <Typography variant='h6' >Work Experience 1</Typography>
-              
-            <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Job Title:</Typography> {prop.input.Job_Title}</Typography>
-
-<Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">Organization:</Typography> {prop.input.Organization}</Typography>
-
-<Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Time duration:</Typography>  {`${prop.input.Start_Date} to
-               ${prop.input.End_Date}`}</Typography>
-               </Item>
-               
-               {
-              experience&&experience.map((exp,index)=>(
-                
-              <div key={index}> <Item> 
-                <Typography variant='h6' >Work Experience {`${index+2}`}</Typography>
-                <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Job Title:</Typography> {exp.Job_Title}</Typography>
-
-              <Typography  ml={4} variant='h6' align='left' >< Typography component="span" fontWeight="bold">Organization:</Typography >{exp.Organization}</Typography>
-              <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Degree:</Typography> {exp.Degree}</Typography>
-              <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Time Duration:</Typography> 
-              {`${exp.Start_Date} 
-               ${exp.End_Date}`}</Typography> </Item></div>
-              ))}
-              
-
-              
+          <Grid item xs={12} md={6}>
+            <Grid container spacing={1}>
+              <Grid item xs={12}><CallIcon fontSize="small" /> {input.Mobile}</Grid>
+              <Grid item xs={12}><HomeIcon fontSize="small" /> {input.Address}</Grid>
+              <Grid item xs={12}><EmailIcon fontSize="small" /> {input.Email}</Grid>
+            </Grid>
           </Grid>
-          {/* work info Ends */}
- {/* education info starts */}
-          <Grid xs={12} >
-          <Typography variant='h5' color="#1F8C9E"  > Education Detail <SchoolIcon/></Typography>
-          <Typography variant='h6' >Education 1</Typography>
-            
-          <Item >
-              <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Type:</Typography> {prop.input.Type}</Typography>
-
-              <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">University:</Typography>{prop.input.University}</Typography>
-              <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Degree:</Typography> {prop.input.Degree}</Typography>
-              <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Time Duration:</Typography> 
-              {`${prop.input.Start_year} to
-               ${prop.input.End_year}`}</Typography>
-            </Item>  
-           
-              
-              {
-              education&&education.map((edu,index)=>(
-                
-              <div key={index}> <Item>
-                <Typography variant='h6' >Education {`${index+2}`}</Typography>
-                
-                  <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Type:</Typography> {edu.Type}</Typography>
-
-              <Typography ml={4} variant='h6' align='left' ><Typography component="span" fontWeight="bold">University:</Typography>{edu.University}</Typography>
-              <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Degree:</Typography> {edu.Degree}</Typography>
-              <Typography ml={4} variant='h6' align='left'><Typography component="span" fontWeight="bold">Time Duration:</Typography> 
-              {`${edu.Start_year} 
-               ${edu.End_year}`}</Typography></Item> </div>
-              ))}
-              
-              
-            
-            
-            
-            
-                   </Grid>
-          {/* education info Ends */} 
-            {/* Key info info starts */}
-
-          <Grid xs={12}>
-            <Typography variant='h5' color="#1F8C9E"  >Key Skills<KeyIcon /></Typography>
-            <Item>
-            <Typography ml={4} variant='h6' align='left' >{prop.input.Skill_1}</Typography>
-            <Typography ml={4} variant='h6' align='left' >{prop.input.Skill_2}</Typography>
-
-            {
-              skill&&skill.map((sk,index)=>(
-                
-              <div key={index}>  <Typography ml={4} variant='h6' align='left'>{sk.Skill}</Typography> </div>
-              ))}
-            </Item>
-          
-          </Grid>
-          {/* Key info info Ends */}
-
         </Grid>
-      </Box>
 
+        <Box sx={{ mt: 3 }}>
+          <Typography variant="h5" color="primary">Objective <FlagCircleIcon /></Typography>
+          <StyledPaper>
+            <Typography>{input.Objective}</Typography>
+          </StyledPaper>
+        </Box>
 
+        <Box>
+          <Typography variant="h5" color="primary">Work Experience <WorkIcon /></Typography>
+          {[{
+            Job_Title: input.Job_Title,
+            Organization: input.Organization,
+            Degree: input.Degree,
+            Start_Date: input.Start_Date,
+            End_Date: input.End_Date,
+          }, ...experiences].map((exp, index) => (
+            <StyledPaper key={index}>
+              <Typography variant="h6">Work Experience {index + 1}</Typography>
+              <Typography><strong>Job Title:</strong> {exp.Job_Title}</Typography>
+              <Typography><strong>Organization:</strong> {exp.Organization}</Typography>
+              {exp.Degree && <Typography><strong>Degree:</strong> {exp.Degree}</Typography>}
+              <Typography><strong>Time Duration:</strong> {exp.Start_Date} - {exp.End_Date}</Typography>
+            </StyledPaper>
+          ))}
+        </Box>
 
+        <Box>
+          <Typography variant="h5" color="primary">Education <SchoolIcon /></Typography>
+          {[{
+            Type: input.Type,
+            University: input.University,
+            Degree: input.Degree,
+            Start_year: input.Start_year,
+            End_year: input.End_year,
+          }, ...Educations].map((edu, index) => (
+            <StyledPaper key={index}>
+              <Typography variant="h6">Education {index + 1}</Typography>
+              <Typography><strong>Type:</strong> {edu.Type}</Typography>
+              <Typography><strong>University:</strong> {edu.University}</Typography>
+              <Typography><strong>Degree:</strong> {edu.Degree}</Typography>
+              <Typography><strong>Time Duration:</strong> {edu.Start_year} - {edu.End_year}</Typography>
+            </StyledPaper>
+          ))}
+        </Box>
 
-   
-    </Paper></div>
-  )
+        <Box>
+          <Typography variant="h5" color="primary">Key Skills <KeyIcon /></Typography>
+          <StyledPaper>
+            {[input.Skill_1, input.Skill_2, ...KeySkills.map(s => s.Skill)].filter(Boolean).map((skill, i) => (
+              <Typography key={i}>• {skill}</Typography>
+            ))}
+          </StyledPaper>
+        </Box>
+
+      </Paper>
+    </Box>
+  );
 }
-
 
 export default Template1;

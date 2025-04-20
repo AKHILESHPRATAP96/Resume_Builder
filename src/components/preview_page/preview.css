@@ -1,39 +1,63 @@
 .preview-header-title {
-  font-size: 25px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 700;
   letter-spacing: 0.5px;
-  margin-bottom: 20px;
+  color: #007FFF; /* MUI Primary Blue */
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .resume-preview-grid-container {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
 }
 
 .resume-preview-grid-item {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.resume-preview-grid-item .resume-save-container {
+.resume-save-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.resume-preview-grid-item .resume-save-container .resume-save-title {
-  font-size: 20px;
+.resume-save-title {
+  font-size: 22px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: rgb(99, 93, 93);
+  color: #4a4a4a;
   margin-bottom: 15px;
 }
+
 .MuiFormControl-root.MuiTextField-root.resume-name-field {
-  width: 50%;
+  width: 100%;
+  max-width: 400px;
   margin-bottom: 20px;
 }
 
-.resume-preview-grid-item .resume-save-container .resume-back-next-container {
+.resume-back-next-container {
   width: 100%;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Responsive Enhancements */
+@media (min-width: 768px) {
+  .resume-preview-grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
 }

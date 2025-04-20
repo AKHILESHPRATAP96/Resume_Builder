@@ -15,6 +15,8 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import {  useNavigate } from 'react-router-dom'
+import back from "../image/det.jpg"
+
 
 // As soon as details are filled for particular categories/sections browser moves further to next fields if ! then same field on same page
 
@@ -57,14 +59,29 @@ function Detail() {
 
 
 
-    return (<>
+    return (
+    <div style={{ position: "relative", height: "100vh" }}>
 
 
+<div style={{
+        backgroundImage: `url(${back})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        opacity: 0.5,
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: 0
+      }} />
+      <div style={{ position: "relative", zIndex: 2 }}>
 
 
         <DrawerAppBar />
 
-        <Grid container spacing={2} >
+        <Grid container spacing={2} sx={{px:5}} >
             <Grid>
 
                 <Grid >
@@ -104,7 +121,7 @@ function Detail() {
                         {value == 2 && (<Education />)}
                         {value == 3 && (<KeySkills />)}
                         
-                        <Grid container spacing={2} >
+                        <Grid container spacing={1} >
                         <Stack direction="row" spacing={6} mt={3} ml={2}>
                        <Button  variant="outlined" onClick={() => { (value >= 1) && setValue(value - 1) }}>Back</Button>
 {(value<3)&&<Button  variant="contained"   onClick={method.handleSubmit(() => {(value <= 2)&&setValue(value + 1) })}>Next</Button>}
@@ -119,7 +136,8 @@ function Detail() {
 
 
 
-    </>
+    </div>
+    </div>
 
     )
 
